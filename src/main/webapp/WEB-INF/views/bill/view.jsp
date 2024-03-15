@@ -13,7 +13,7 @@
 <body>
     <h1>Bill from Order ID</h1>
     <div>Order ID - ${billing.order.orderId}</div>
-    <div>Order Time - ${billing.order.orderTime}</div>
+    <div>Ordered Time - ${billing.order.orderTime}</div>
     <div>Billing ID - ${billing.billId}</div>
     <div>Service fee -  ${billing.serviceFee}</div>
     <div>Service tax - ${billing.tax}</div>
