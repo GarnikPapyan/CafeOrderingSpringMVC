@@ -1,6 +1,8 @@
 package org.example.cafe.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "order_item")
@@ -9,9 +11,12 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_item_id")
     private Long orderId;
+
+    @Min(value = 1)
     @Column(name = "quantity",nullable = false)
     private Integer quantity;
 
+    @Min(value = 1)
     @Column(name = "item_id")
     private Long itemId;
 

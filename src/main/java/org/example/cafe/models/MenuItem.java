@@ -2,6 +2,9 @@ package org.example.cafe.models;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "menu_item")
@@ -10,12 +13,19 @@ public class MenuItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "item_id")
     private Long itemId;
+    @NotEmpty(message = "Empty name")
+    @Size(min = 1, max = 55)
     @Column(name = "name", nullable = false,length = 55)
     private String name;
+    @NotEmpty(message = "Empty description")
+    @Size(min = 1, max = 55)
     @Column(name = "description", nullable = false, length = 55)
     private String description;
+    @NotEmpty(message = "Empty category")
+    @Size(min = 1, max = 55)
     @Column(name = "category", nullable = false, length = 55)
     private String category;
+    @Min(value = 1)
     @Column(name = "price",nullable = false)
     private Double price;
 

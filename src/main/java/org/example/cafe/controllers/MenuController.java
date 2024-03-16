@@ -1,9 +1,11 @@
 package org.example.cafe.controllers;
 
+import jakarta.validation.Valid;
 import org.example.cafe.dao.MenuItemDAO;
 import org.example.cafe.models.MenuItem;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,7 +27,10 @@ public class MenuController {
         return "menu/items";
     }
     @PostMapping("/add")
-    public String setMenuItems(@RequestBody MenuItem menuItem) {
+    public String setMenuItems(@RequestBody @Valid MenuItem menuItem, BindingResult bindingResult) {
+            if(bindingResult.hasErrors()){
+                return "menu/binding";
+            }
             menuItemDAO.save(menuItem);
             return "redirect:/menu/items";
     }

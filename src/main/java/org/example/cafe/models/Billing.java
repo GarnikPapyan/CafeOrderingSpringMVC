@@ -2,6 +2,8 @@ package org.example.cafe.models;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "billing")
@@ -10,12 +12,17 @@ public class Billing {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bill_id")
     private Long billId;
+
     @Column(name = "service_fee")
     private Double serviceFee;
+
     @Column(name = "tax")
     private Double tax;
+
     @Column(name = "tip")
     private Double tip;
+
+    @Min(value = 1)
     @Column(name = "total")
     private  Double total;
 
