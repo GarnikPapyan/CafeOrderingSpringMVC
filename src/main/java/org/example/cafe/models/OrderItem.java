@@ -2,7 +2,7 @@ package org.example.cafe.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
+
 
 @Entity
 @Table(name = "order_item")

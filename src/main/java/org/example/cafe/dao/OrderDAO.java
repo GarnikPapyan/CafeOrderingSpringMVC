@@ -6,7 +6,6 @@ import org.example.cafe.models.OrderItem;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service

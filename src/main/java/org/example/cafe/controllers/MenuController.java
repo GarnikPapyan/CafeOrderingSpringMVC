@@ -22,7 +22,7 @@ public class MenuController {
 
     @GetMapping("/items")
     public String getAllMenuItems(ModelMap model){
-        List<MenuItem> menuItems = menuItemDAO.getAll();
+        List<MenuItem> menuItems = menuItemDAO.view();
         model.put("menuItems", menuItems);
         return "menu/items";
     }

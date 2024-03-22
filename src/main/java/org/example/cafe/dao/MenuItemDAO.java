@@ -5,19 +5,20 @@ import org.example.cafe.models.MenuItem;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
 public class MenuItemDAO {
     private final SessionFactory sessionFactory;
 
+
     public MenuItemDAO(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
     @Transactional
-    public List<MenuItem> getAll(){
+    public List<MenuItem> view(){
         Session session = sessionFactory.getCurrentSession();
+
         return session.createQuery("from MenuItem",MenuItem.class).list();
     }
     @Transactional
@@ -49,5 +50,4 @@ public class MenuItemDAO {
         Session session = sessionFactory.getCurrentSession();
         return session.get(MenuItem.class,itemId);
     }
-
 }
